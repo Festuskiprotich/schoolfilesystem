@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Environment secrets — NEVER commit these
+backend/.env
+backend/.env.production
+frontend/.env.production
+frontend/.env.local
+
+# Build output
+frontend/build/
+
+# Database file (SQLite dev only)
+backend/database.sqlite
+
+# Logs
+backend/logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

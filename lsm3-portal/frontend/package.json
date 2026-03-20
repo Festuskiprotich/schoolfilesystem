@@ -2,8 +2,10 @@
   "name": "lsm3-frontend",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
-    "@tanstack/react-query": "^5.0.0",
     "axios": "^1.5.0",
     "chart.js": "^4.4.0",
     "react": "^18.2.0",
@@ -15,7 +17,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "build:win": "set GENERATE_SOURCEMAP=false && react-scripts build"
   },
   "proxy": "http://localhost:5000",
   "browserslist": {

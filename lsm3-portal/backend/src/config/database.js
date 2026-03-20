@@ -1,11 +1,18 @@
 const { Sequelize } = require('sequelize');
-const path = require('path');
+require('dotenv').config();
 
-// SQLite — no installation needed, stores data in a local file
-const sequelize = new Sequelize({
-  dialect: 'sqlite',
-  storage: path.join(__dirname, '..', '..', 'database.sqlite'),
+// Supabase provides a standard PostgreSQL connection string
+// Format: postgresql://postgres:[PASSWORD]@db.[PROJECT-REF].supabase.co:5432/postgres
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+  dialect: 'postgres',
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false, // required for Supabase SSL
+    },
+  },
   logging: false,
+  pool: { max: 10, min: 0, acquire: 30000, idle: 10000 },
 });
 
 module.exports = sequelize;
