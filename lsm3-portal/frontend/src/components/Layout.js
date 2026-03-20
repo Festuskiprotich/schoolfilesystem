@@ -1,3 +1,14 @@
+/*
+ *  _____         _                  _  __  __  _
+ * |  ___|__  ___| |_ _   _ ___ __ _(_)/ _|| |_| |_ _ __ _____  __
+ * | |_ / _ \/ __| __| | | / __/ _` | | |_ | __| __| '__/ _ \ \/ /
+ * |  _|  __/\__ \ |_| |_| \__ \ (_| | |  _|| |_| |_| | | (_) >  <
+ * |_|  \___||___/\__|\__,_|___/\__,_|_|_|   \__|\__|_|  \___/_/\_\
+ *
+ *  LSM3 - Advanced School Portal
+ *  Techswifttrix Agency
+ */
+
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
@@ -39,7 +50,7 @@ export default function Layout({ children, navItems, title }) {
             onClick={() => setSidebarOpen(!sidebarOpen)}
             style={{ background: 'none', border: 'none', color: '#a5b4fc', fontSize: 20, cursor: 'pointer' }}
           >
-            ☰
+            â˜°
           </button>
         </div>
 
@@ -89,7 +100,7 @@ export default function Layout({ children, navItems, title }) {
               width: sidebarOpen ? '100%' : 'auto',
             }}
           >
-            {sidebarOpen ? 'Logout' : '↩'}
+            {sidebarOpen ? 'Logout' : 'â†©'}
           </button>
         </div>
       </aside>
@@ -107,7 +118,7 @@ export default function Layout({ children, navItems, title }) {
         }}>
           <h1 style={{ fontSize: 18, fontWeight: 600 }}>{title}</h1>
           <div style={{ position: 'relative' }}>
-            <span style={{ fontSize: 22, cursor: 'pointer' }}>🔔</span>
+            <span style={{ fontSize: 22, cursor: 'pointer' }}>ðŸ””</span>
             {unread > 0 && (
               <span style={{
                 position: 'absolute',

@@ -1,3 +1,14 @@
+/*
+ *  _____         _                  _  __  __  _
+ * |  ___|__  ___| |_ _   _ ___ __ _(_)/ _|| |_| |_ _ __ _____  __
+ * | |_ / _ \/ __| __| | | / __/ _` | | |_ | __| __| '__/ _ \ \/ /
+ * |  _|  __/\__ \ |_| |_| \__ \ (_| | |  _|| |_| |_| | | (_) >  <
+ * |_|  \___||___/\__|\__,_|___/\__,_|_|_|   \__|\__|_|  \___/_/\_\
+ *
+ *  LSM3 - Advanced School Portal
+ *  Techswifttrix Agency
+ */
+
 const router = require('express').Router();
 const { body } = require('express-validator');
 const { Exam, ExamResult, Student, User } = require('../models');
@@ -32,7 +43,7 @@ router.get('/', authenticate, async (req, res) => {
   }
 });
 
-// GET /api/exams/results/student/:studentId  — MUST be before /:id to avoid route conflict
+// GET /api/exams/results/student/:studentId  â€” MUST be before /:id to avoid route conflict
 router.get('/results/student/:studentId', authenticate, async (req, res) => {
   try {
     const results = await ExamResult.findAll({

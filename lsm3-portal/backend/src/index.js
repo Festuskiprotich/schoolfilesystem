@@ -1,8 +1,16 @@
-require('dotenv').config({
-  path: require('path').resolve(
-    __dirname, '..', process.env.NODE_ENV === 'production' ? '.env.production' : '.env'
-  ),
-});
+/*
+ *  _____         _                  _  __  __  _
+ * |  ___|__  ___| |_ _   _ ___ __ _(_)/ _|| |_| |_ _ __ _____  __
+ * | |_ / _ \/ __| __| | | / __/ _` | | |_ | __| __| '__/ _ \ \/ /
+ * |  _|  __/\__ \ |_| |_| \__ \ (_| | |  _|| |_| |_| | | (_) >  <
+ * |_|  \___||___/\__|\__,_|___/\__,_|_|_|   \__|\__|_|  \___/_/\_\
+ *
+ *  LSM3 - Advanced School Portal
+ *  Techswifttrix Agency
+ */
+
+// Load .env in development; on Render/production env vars are injected by the platform
+require('dotenv').config();
 
 const fs = require('fs');
 const path = require('path');
@@ -32,7 +40,7 @@ const io = new Server(server, {
   cors: { origin: CLIENT_URL, methods: ['GET', 'POST'], credentials: true },
 });
 
-// ── Security & performance middleware ──────────────────────────
+// â”€â”€ Security & performance middleware â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 app.use(helmet());
 app.use(compression());
 app.set('trust proxy', 1);
@@ -40,7 +48,7 @@ app.set('trust proxy', 1);
 // CORS
 app.use(cors({ origin: CLIENT_URL, credentials: true }));
 
-// Rate limiting — global
+// Rate limiting â€” global
 app.use(rateLimit({
   windowMs: 15 * 60 * 1000, // 15 min
   max: 200,
@@ -62,7 +70,7 @@ app.use(isProd ? morgan('combined') : morgan('dev'));
 // Make io accessible in routes
 app.set('io', io);
 
-// ── Routes ────────────────────────────────────────────────────
+// â”€â”€ Routes â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 app.use('/api/auth', authLimiter, require('./routes/auth'));
 app.use('/api/users', require('./routes/users'));
 app.use('/api/students', require('./routes/students'));
@@ -87,7 +95,7 @@ if (isProd) {
   });
 }
 
-// ── Global error handler ──────────────────────────────────────
+// â”€â”€ Global error handler â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 app.use((err, req, res, next) => {
   logger.error(`${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
   res.status(err.status || 500).json({
@@ -95,12 +103,12 @@ app.use((err, req, res, next) => {
   });
 });
 
-// ── Socket.io ─────────────────────────────────────────────────
+// â”€â”€ Socket.io â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 initSocket(io);
 
-// ── Graceful shutdown ─────────────────────────────────────────
+// â”€â”€ Graceful shutdown â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const shutdown = async (signal) => {
-  logger.info(`${signal} received — shutting down gracefully`);
+  logger.info(`${signal} received â€” shutting down gracefully`);
   server.close(async () => {
     await sequelize.close();
     logger.info('Server and DB connections closed');
@@ -111,7 +119,7 @@ const shutdown = async (signal) => {
 process.on('SIGTERM', () => shutdown('SIGTERM'));
 process.on('SIGINT', () => shutdown('SIGINT'));
 
-// ── Unhandled errors ──────────────────────────────────────────
+// â”€â”€ Unhandled errors â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 process.on('unhandledRejection', (err) => {
   logger.error('Unhandled Rejection:', err);
   if (isProd) process.exit(1);
@@ -121,10 +129,10 @@ process.on('uncaughtException', (err) => {
   process.exit(1);
 });
 
-// ── Start ─────────────────────────────────────────────────────
+// â”€â”€ Start â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const PORT = process.env.PORT || 5000;
 sequelize
-  .sync({ alter: !isProd }) // in production, never auto-alter — use migrations
+  .sync({ alter: !isProd }) // in production, never auto-alter â€” use migrations
   .then(() => {
     logger.info(`Database connected [${isProd ? 'production' : 'development'}]`);
     server.listen(PORT, () => logger.info(`Server running on port ${PORT} [${process.env.NODE_ENV}]`));

@@ -1,3 +1,14 @@
+/*
+ *  _____         _                  _  __  __  _
+ * |  ___|__  ___| |_ _   _ ___ __ _(_)/ _|| |_| |_ _ __ _____  __
+ * | |_ / _ \/ __| __| | | / __/ _` | | |_ | __| __| '__/ _ \ \/ /
+ * |  _|  __/\__ \ |_| |_| \__ \ (_| | |  _|| |_| |_| | | (_) >  <
+ * |_|  \___||___/\__|\__,_|___/\__,_|_|_|   \__|\__|_|  \___/_/\_\
+ *
+ *  LSM3 - Advanced School Portal
+ *  Techswifttrix Agency
+ */
+
 const router = require('express').Router();
 const { Notification } = require('../models');
 const { authenticate, authorize } = require('../middleware/auth');
@@ -47,7 +58,7 @@ router.get('/', authenticate, async (req, res) => {
   }
 });
 
-// PUT /api/notifications/read-all  — MUST be before /:id/read to avoid route conflict
+// PUT /api/notifications/read-all  â€” MUST be before /:id/read to avoid route conflict
 router.put('/read-all', authenticate, async (req, res) => {
   try {
     await Notification.update({ isRead: true }, { where: { userId: req.user.id } });

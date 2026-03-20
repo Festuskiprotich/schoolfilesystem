@@ -1,3 +1,14 @@
+/*
+ *  _____         _                  _  __  __  _
+ * |  ___|__  ___| |_ _   _ ___ __ _(_)/ _|| |_| |_ _ __ _____  __
+ * | |_ / _ \/ __| __| | | / __/ _` | | |_ | __| __| '__/ _ \ \/ /
+ * |  _|  __/\__ \ |_| |_| \__ \ (_| | |  _|| |_| |_| | | (_) >  <
+ * |_|  \___||___/\__|\__,_|___/\__,_|_|_|   \__|\__|_|  \___/_/\_\
+ *
+ *  LSM3 - Advanced School Portal
+ *  Techswifttrix Agency
+ */
+
 import React, { useEffect, useState } from 'react';
 import api from '../../api/axios';
 
@@ -21,7 +32,7 @@ export default function StudentTimetable() {
 
   return (
     <div>
-      <p className="page-title">My Timetable {profile ? `– ${profile.grade}` : ''}</p>
+      <p className="page-title">My Timetable {profile ? `â€“ ${profile.grade}` : ''}</p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
         {days.map(day => byDay[day].length > 0 && (
           <div key={day} className="card">
@@ -31,9 +42,9 @@ export default function StudentTimetable() {
               <tbody>
                 {byDay[day].map(e => (
                   <tr key={e.id}>
-                    <td>{e.startTime} – {e.endTime}</td>
+                    <td>{e.startTime} â€“ {e.endTime}</td>
                     <td>{e.subject}</td>
-                    <td>{e.room || '—'}</td>
+                    <td>{e.room || 'â€”'}</td>
                   </tr>
                 ))}
               </tbody>

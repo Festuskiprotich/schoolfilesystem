@@ -1,3 +1,14 @@
+/*
+ *  _____         _                  _  __  __  _
+ * |  ___|__  ___| |_ _   _ ___ __ _(_)/ _|| |_| |_ _ __ _____  __
+ * | |_ / _ \/ __| __| | | / __/ _` | | |_ | __| __| '__/ _ \ \/ /
+ * |  _|  __/\__ \ |_| |_| \__ \ (_| | |  _|| |_| |_| | | (_) >  <
+ * |_|  \___||___/\__|\__,_|___/\__,_|_|_|   \__|\__|_|  \___/_/\_\
+ *
+ *  LSM3 - Advanced School Portal
+ *  Techswifttrix Agency
+ */
+
 import React, { useEffect, useState } from 'react';
 import api from '../../api/axios';
 
@@ -61,7 +72,7 @@ export default function AdminTimetable() {
                 <tr key={e.id}>
                   <td>{e.grade}{e.section ? `-${e.section}` : ''}</td>
                   <td>{e.dayOfWeek}</td><td>{e.subject}</td>
-                  <td>{e.startTime}–{e.endTime}</td><td>{e.room || '—'}</td>
+                  <td>{e.startTime}â€“{e.endTime}</td><td>{e.room || 'â€”'}</td>
                   <td><button className="btn btn-danger" style={{ padding: '3px 8px', fontSize: 12 }} onClick={() => handleDelete(e.id)}>Del</button></td>
                 </tr>
               ))}

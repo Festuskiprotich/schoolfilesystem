@@ -1,3 +1,14 @@
+/*
+ *  _____         _                  _  __  __  _
+ * |  ___|__  ___| |_ _   _ ___ __ _(_)/ _|| |_| |_ _ __ _____  __
+ * | |_ / _ \/ __| __| | | / __/ _` | | |_ | __| __| '__/ _ \ \/ /
+ * |  _|  __/\__ \ |_| |_| \__ \ (_| | |  _|| |_| |_| | | (_) >  <
+ * |_|  \___||___/\__|\__,_|___/\__,_|_|_|   \__|\__|_|  \___/_/\_\
+ *
+ *  LSM3 - Advanced School Portal
+ *  Techswifttrix Agency
+ */
+
 import React, { useEffect, useState } from 'react';
 import api from '../../api/axios';
 import StatCard from '../../components/StatCard';
@@ -21,9 +32,9 @@ export default function TeacherHome() {
     <div>
       <p className="page-title">Welcome, {user?.name}</p>
       <div className="grid-4">
-        <StatCard label="Students" value={stats.students} icon="🎓" color="#4f46e5" />
-        <StatCard label="Exams" value={stats.exams} icon="📝" color="#0891b2" />
-        <StatCard label="Homework" value={stats.homework} icon="📚" color="#059669" />
+        <StatCard label="Students" value={stats.students} icon="ðŸŽ“" color="#4f46e5" />
+        <StatCard label="Exams" value={stats.exams} icon="ðŸ“" color="#0891b2" />
+        <StatCard label="Homework" value={stats.homework} icon="ðŸ“š" color="#059669" />
       </div>
     </div>
   );

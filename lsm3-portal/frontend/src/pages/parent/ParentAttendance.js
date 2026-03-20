@@ -1,3 +1,14 @@
+/*
+ *  _____         _                  _  __  __  _
+ * |  ___|__  ___| |_ _   _ ___ __ _(_)/ _|| |_| |_ _ __ _____  __
+ * | |_ / _ \/ __| __| | | / __/ _` | | |_ | __| __| '__/ _ \ \/ /
+ * |  _|  __/\__ \ |_| |_| \__ \ (_| | |  _|| |_| |_| | | (_) >  <
+ * |_|  \___||___/\__|\__,_|___/\__,_|_|_|   \__|\__|_|  \___/_/\_\
+ *
+ *  LSM3 - Advanced School Portal
+ *  Techswifttrix Agency
+ */
+
 import React, { useEffect, useState } from 'react';
 import api from '../../api/axios';
 import { useAuth } from '../../context/AuthContext';
@@ -58,9 +69,9 @@ export default function ParentAttendance() {
               {records.map(r => (
                 <tr key={r.id}>
                   <td>{r.date}</td>
-                  <td>{r.subject || '—'}</td>
+                  <td>{r.subject || 'â€”'}</td>
                   <td><span className={`badge ${statusColor[r.status]}`}>{r.status}</span></td>
-                  <td>{r.remarks || '—'}</td>
+                  <td>{r.remarks || 'â€”'}</td>
                 </tr>
               ))}
             </tbody>

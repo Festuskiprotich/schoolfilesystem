@@ -1,8 +1,19 @@
+/*
+ *  _____         _                  _  __  __  _
+ * |  ___|__  ___| |_ _   _ ___ __ _(_)/ _|| |_| |_ _ __ _____  __
+ * | |_ / _ \/ __| __| | | / __/ _` | | |_ | __| __| '__/ _ \ \/ /
+ * |  _|  __/\__ \ |_| |_| \__ \ (_| | |  _|| |_| |_| | | (_) >  <
+ * |_|  \___||___/\__|\__,_|___/\__,_|_|_|   \__|\__|_|  \___/_/\_\
+ *
+ *  LSM3 - Advanced School Portal
+ *  Techswifttrix Agency
+ */
+
 const router = require('express').Router();
 const { Student, User } = require('../models');
 const { authenticate, authorize } = require('../middleware/auth');
 
-// GET /api/students/me  (student gets own profile) — must be before /:id
+// GET /api/students/me  (student gets own profile) â€” must be before /:id
 router.get('/me', authenticate, authorize('student'), async (req, res) => {
   try {
     const student = await Student.findOne({
@@ -41,7 +52,7 @@ router.post('/', authenticate, authorize('admin'), async (req, res) => {
   }
 });
 
-// GET /api/students/:id  — must be after /me
+// GET /api/students/:id  â€” must be after /me
 router.get('/:id', authenticate, async (req, res) => {
   try {
     const student = await Student.findByPk(req.params.id, {

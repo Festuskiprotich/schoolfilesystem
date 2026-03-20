@@ -1,3 +1,14 @@
+/*
+ *  _____         _                  _  __  __  _
+ * |  ___|__  ___| |_ _   _ ___ __ _(_)/ _|| |_| |_ _ __ _____  __
+ * | |_ / _ \/ __| __| | | / __/ _` | | |_ | __| __| '__/ _ \ \/ /
+ * |  _|  __/\__ \ |_| |_| \__ \ (_| | |  _|| |_| |_| | | (_) >  <
+ * |_|  \___||___/\__|\__,_|___/\__,_|_|_|   \__|\__|_|  \___/_/\_\
+ *
+ *  LSM3 - Advanced School Portal
+ *  Techswifttrix Agency
+ */
+
 import React, { useEffect, useState } from 'react';
 import api from '../../api/axios';
 import StatCard from '../../components/StatCard';
@@ -21,10 +32,10 @@ export default function AdminHome() {
     <div>
       <p className="page-title">Overview</p>
       <div className="grid-4">
-        <StatCard label="Total Users" value={stats.users} icon="👤" color="#4f46e5" />
-        <StatCard label="Students" value={stats.students} icon="🎓" color="#0891b2" />
-        <StatCard label="Teachers" value={stats.teachers} icon="👨‍🏫" color="#059669" />
-        <StatCard label="Parents" value={stats.parents} icon="👨‍👩‍👧" color="#d97706" />
+        <StatCard label="Total Users" value={stats.users} icon="ðŸ‘¤" color="#4f46e5" />
+        <StatCard label="Students" value={stats.students} icon="ðŸŽ“" color="#0891b2" />
+        <StatCard label="Teachers" value={stats.teachers} icon="ðŸ‘¨â€ðŸ«" color="#059669" />
+        <StatCard label="Parents" value={stats.parents} icon="ðŸ‘¨â€ðŸ‘©â€ðŸ‘§" color="#d97706" />
       </div>
     </div>
   );

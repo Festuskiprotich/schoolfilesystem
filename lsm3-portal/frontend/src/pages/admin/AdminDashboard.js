@@ -1,3 +1,14 @@
+/*
+ *  _____         _                  _  __  __  _
+ * |  ___|__  ___| |_ _   _ ___ __ _(_)/ _|| |_| |_ _ __ _____  __
+ * | |_ / _ \/ __| __| | | / __/ _` | | |_ | __| __| '__/ _ \ \/ /
+ * |  _|  __/\__ \ |_| |_| \__ \ (_| | |  _|| |_| |_| | | (_) >  <
+ * |_|  \___||___/\__|\__,_|___/\__,_|_|_|   \__|\__|_|  \___/_/\_\
+ *
+ *  LSM3 - Advanced School Portal
+ *  Techswifttrix Agency
+ */
+
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Layout from '../../components/Layout';
@@ -9,12 +20,12 @@ import AdminNotifications from './AdminNotifications';
 import AdminTimetable from './AdminTimetable';
 
 const navItems = [
-  { path: '/admin', label: 'Dashboard', icon: '🏠' },
-  { path: '/admin/users', label: 'Manage Users', icon: '👥' },
-  { path: '/admin/attendance', label: 'Attendance', icon: '📋' },
-  { path: '/admin/exams', label: 'Exams', icon: '📝' },
-  { path: '/admin/timetable', label: 'Timetable', icon: '📅' },
-  { path: '/admin/notifications', label: 'Notifications', icon: '🔔' },
+  { path: '/admin', label: 'Dashboard', icon: 'ðŸ ' },
+  { path: '/admin/users', label: 'Manage Users', icon: 'ðŸ‘¥' },
+  { path: '/admin/attendance', label: 'Attendance', icon: 'ðŸ“‹' },
+  { path: '/admin/exams', label: 'Exams', icon: 'ðŸ“' },
+  { path: '/admin/timetable', label: 'Timetable', icon: 'ðŸ“…' },
+  { path: '/admin/notifications', label: 'Notifications', icon: 'ðŸ””' },
 ];
 
 export default function AdminDashboard() {

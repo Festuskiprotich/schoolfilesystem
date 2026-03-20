@@ -1,3 +1,14 @@
+/*
+ *  _____         _                  _  __  __  _
+ * |  ___|__  ___| |_ _   _ ___ __ _(_)/ _|| |_| |_ _ __ _____  __
+ * | |_ / _ \/ __| __| | | / __/ _` | | |_ | __| __| '__/ _ \ \/ /
+ * |  _|  __/\__ \ |_| |_| \__ \ (_| | |  _|| |_| |_| | | (_) >  <
+ * |_|  \___||___/\__|\__,_|___/\__,_|_|_|   \__|\__|_|  \___/_/\_\
+ *
+ *  LSM3 - Advanced School Portal
+ *  Techswifttrix Agency
+ */
+
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Layout from '../../components/Layout';
@@ -8,11 +19,11 @@ import TeacherHomework from './TeacherHomework';
 import TeacherMessages from './TeacherMessages';
 
 const navItems = [
-  { path: '/teacher', label: 'Dashboard', icon: '🏠' },
-  { path: '/teacher/attendance', label: 'Attendance', icon: '📋' },
-  { path: '/teacher/marks', label: 'Enter Marks', icon: '📝' },
-  { path: '/teacher/homework', label: 'Homework', icon: '📚' },
-  { path: '/teacher/messages', label: 'Messages', icon: '💬' },
+  { path: '/teacher', label: 'Dashboard', icon: 'ðŸ ' },
+  { path: '/teacher/attendance', label: 'Attendance', icon: 'ðŸ“‹' },
+  { path: '/teacher/marks', label: 'Enter Marks', icon: 'ðŸ“' },
+  { path: '/teacher/homework', label: 'Homework', icon: 'ðŸ“š' },
+  { path: '/teacher/messages', label: 'Messages', icon: 'ðŸ’¬' },
 ];
 
 export default function TeacherDashboard() {

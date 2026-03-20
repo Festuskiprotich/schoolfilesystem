@@ -1,3 +1,14 @@
+/*
+ *  _____         _                  _  __  __  _
+ * |  ___|__  ___| |_ _   _ ___ __ _(_)/ _|| |_| |_ _ __ _____  __
+ * | |_ / _ \/ __| __| | | / __/ _` | | |_ | __| __| '__/ _ \ \/ /
+ * |  _|  __/\__ \ |_| |_| \__ \ (_| | |  _|| |_| |_| | | (_) >  <
+ * |_|  \___||___/\__|\__,_|___/\__,_|_|_|   \__|\__|_|  \___/_/\_\
+ *
+ *  LSM3 - Advanced School Portal
+ *  Techswifttrix Agency
+ */
+
 import React, { useEffect, useState } from 'react';
 import api from '../../api/axios';
 
@@ -81,7 +92,7 @@ export default function TeacherHomework() {
                       <td>{s.studentId}</td>
                       <td><span className={`badge ${s.status === 'graded' ? 'badge-success' : s.status === 'late' ? 'badge-warning' : 'badge-info'}`}>{s.status}</span></td>
                       <td>{new Date(s.submittedAt).toLocaleDateString()}</td>
-                      <td>{s.marks ?? '—'}</td>
+                      <td>{s.marks ?? 'â€”'}</td>
                     </tr>
                   ))}
                 </tbody>

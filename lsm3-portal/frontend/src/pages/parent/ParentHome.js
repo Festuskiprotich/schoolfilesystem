@@ -1,3 +1,14 @@
+/*
+ *  _____         _                  _  __  __  _
+ * |  ___|__  ___| |_ _   _ ___ __ _(_)/ _|| |_| |_ _ __ _____  __
+ * | |_ / _ \/ __| __| | | / __/ _` | | |_ | __| __| '__/ _ \ \/ /
+ * |  _|  __/\__ \ |_| |_| \__ \ (_| | |  _|| |_| |_| | | (_) >  <
+ * |_|  \___||___/\__|\__,_|___/\__,_|_|_|   \__|\__|_|  \___/_/\_\
+ *
+ *  LSM3 - Advanced School Portal
+ *  Techswifttrix Agency
+ */
+
 import React, { useEffect, useState } from 'react';
 import api from '../../api/axios';
 import StatCard from '../../components/StatCard';
@@ -46,15 +57,15 @@ export default function ParentHome() {
       {children.map(child => (
         <div key={child.id} className="card mb-4">
           <h3 style={{ fontSize: 16, marginBottom: 12 }}>
-            {child.user?.name} — Grade {child.grade}
+            {child.user?.name} â€” Grade {child.grade}
             {child.section ? ` (${child.section})` : ''}
           </h3>
           {summaries[child.id] ? (
             <div className="grid-4">
-              <StatCard label="Total Days" value={summaries[child.id].total} icon="📅" color="#4f46e5" />
-              <StatCard label="Present" value={summaries[child.id].present} icon="✅" color="#059669" />
-              <StatCard label="Absent" value={summaries[child.id].absent} icon="❌" color="#ef4444" />
-              <StatCard label="Attendance %" value={`${summaries[child.id].percentage}%`} icon="📊" color="#d97706" />
+              <StatCard label="Total Days" value={summaries[child.id].total} icon="ðŸ“…" color="#4f46e5" />
+              <StatCard label="Present" value={summaries[child.id].present} icon="âœ…" color="#059669" />
+              <StatCard label="Absent" value={summaries[child.id].absent} icon="âŒ" color="#ef4444" />
+              <StatCard label="Attendance %" value={`${summaries[child.id].percentage}%`} icon="ðŸ“Š" color="#d97706" />
             </div>
           ) : (
             <p style={{ color: '#9ca3af', fontSize: 13 }}>No attendance data yet.</p>

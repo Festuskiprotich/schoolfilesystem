@@ -1,3 +1,14 @@
+/*
+ *  _____         _                  _  __  __  _
+ * |  ___|__  ___| |_ _   _ ___ __ _(_)/ _|| |_| |_ _ __ _____  __
+ * | |_ / _ \/ __| __| | | / __/ _` | | |_ | __| __| '__/ _ \ \/ /
+ * |  _|  __/\__ \ |_| |_| \__ \ (_| | |  _|| |_| |_| | | (_) >  <
+ * |_|  \___||___/\__|\__,_|___/\__,_|_|_|   \__|\__|_|  \___/_/\_\
+ *
+ *  LSM3 - Advanced School Portal
+ *  Techswifttrix Agency
+ */
+
 const router = require('express').Router();
 const { body } = require('express-validator');
 const { User } = require('../models');
@@ -5,7 +16,7 @@ const { authenticate, authorize } = require('../middleware/auth');
 const validate = require('../middleware/validate');
 const logger = require('../config/logger');
 
-// GET /api/users  — admin gets all, others get only active users (for messaging contact lists)
+// GET /api/users  â€” admin gets all, others get only active users (for messaging contact lists)
 router.get('/', authenticate, async (req, res) => {
   try {
     const isAdmin = req.user.role === 'admin';

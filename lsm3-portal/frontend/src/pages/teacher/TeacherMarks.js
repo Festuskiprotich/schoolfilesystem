@@ -1,3 +1,14 @@
+/*
+ *  _____         _                  _  __  __  _
+ * |  ___|__  ___| |_ _   _ ___ __ _(_)/ _|| |_| |_ _ __ _____  __
+ * | |_ / _ \/ __| __| | | / __/ _` | | |_ | __| __| '__/ _ \ \/ /
+ * |  _|  __/\__ \ |_| |_| \__ \ (_| | |  _|| |_| |_| | | (_) >  <
+ * |_|  \___||___/\__|\__,_|___/\__,_|_|_|   \__|\__|_|  \___/_/\_\
+ *
+ *  LSM3 - Advanced School Portal
+ *  Techswifttrix Agency
+ */
+
 import React, { useEffect, useState } from 'react';
 import api from '../../api/axios';
 
@@ -46,7 +57,7 @@ export default function TeacherMarks() {
           <label>Select Exam</label>
           <select value={selectedExam} onChange={e => handleExamChange(e.target.value)}>
             <option value="">-- Select Exam --</option>
-            {exams.map(ex => <option key={ex.id} value={ex.id}>{ex.title} – {ex.subject} ({ex.grade})</option>)}
+            {exams.map(ex => <option key={ex.id} value={ex.id}>{ex.title} â€“ {ex.subject} ({ex.grade})</option>)}
           </select>
         </div>
         {examInfo && <p style={{ fontSize: 13, color: '#6b7280', marginBottom: 16 }}>Total Marks: <strong>{examInfo.totalMarks}</strong> | Date: {examInfo.examDate}</p>}
@@ -57,7 +68,7 @@ export default function TeacherMarks() {
               <tbody>
                 {students.map(s => {
                   const pct = examInfo ? ((marks[s.id] || 0) / examInfo.totalMarks) * 100 : 0;
-                  const grade = pct >= 90 ? 'A+' : pct >= 80 ? 'A' : pct >= 70 ? 'B' : pct >= 60 ? 'C' : pct >= 50 ? 'D' : marks[s.id] ? 'F' : '—';
+                  const grade = pct >= 90 ? 'A+' : pct >= 80 ? 'A' : pct >= 70 ? 'B' : pct >= 60 ? 'C' : pct >= 50 ? 'D' : marks[s.id] ? 'F' : 'â€”';
                   return (
                     <tr key={s.id}>
                       <td>{s.user?.name}</td>
