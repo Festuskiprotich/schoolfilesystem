@@ -1,9 +1,9 @@
 /*
- *  _____         _                  _  __  __  _
- * |  ___|__  ___| |_ _   _ ___ __ _(_)/ _|| |_| |_ _ __ _____  __
- * | |_ / _ \/ __| __| | | / __/ _` | | |_ | __| __| '__/ _ \ \/ /
- * |  _|  __/\__ \ |_| |_| \__ \ (_| | |  _|| |_| |_| | | (_) >  <
- * |_|  \___||___/\__|\__,_|___/\__,_|_|_|   \__|\__|_|  \___/_/\_\
+ *  _____         _                 
+ * |  ___|__  ___| |_ _   _ ___ 
+ * | |_ / _ \/ __| __| | | / __/ 
+ * |  _|  __/\__ \ |_| |_| \__ \ 
+ * |_|  \___||___/\__|\__,_|___/
  *
  *  LSM3 - Advanced School Portal
  *  Techswifttrix Agency
@@ -16,23 +16,12 @@ if (!process.env.DATABASE_URL) {
   throw new Error('DATABASE_URL environment variable is not set');
 }
 
-// Parse the DATABASE_URL and force IPv4 by resolving the hostname manually
-const url = new URL(process.env.DATABASE_URL);
-
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
   dialect: 'postgres',
-  host: url.hostname,
   dialectOptions: {
     ssl: {
       require: true,
-      rejectUnauthorized: false, // required for Supabase / Render
-    },
-  },
-  hooks: {
-    beforeConnect: async (config) => {
-      const dns = require('dns').promises;
-      const { address } = await dns.lookup(config.host, { family: 4 });
-      config.host = address;
+      rejectUnauthorized: false,
     },
   },
   logging: false,
