@@ -16,14 +16,24 @@ if (!process.env.DATABASE_URL) {
   throw new Error('DATABASE_URL environment variable is not set');
 }
 
+// Parse the DATABASE_URL and force IPv4 by resolving the hostname manually
+const url = new URL(process.env.DATABASE_URL);
+
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
   dialect: 'postgres',
+  host: url.hostname,
   dialectOptions: {
     ssl: {
       require: true,
       rejectUnauthorized: false, // required for Supabase / Render
     },
-    family: 4, // force IPv4 to avoid ENETUNREACH on Render
+  },
+  hooks: {
+    beforeConnect: async (config) => {
+      const dns = require('dns').promises;
+      const { address } = await dns.lookup(config.host, { family: 4 });
+      config.host = address;
+    },
   },
   logging: false,
   pool: {
