@@ -14,6 +14,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { SocketProvider } from './context/SocketContext';
 import LoginPage from './pages/LoginPage';
+import SignUpPage from './pages/SignUpPage';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import TeacherDashboard from './pages/teacher/TeacherDashboard';
 import StudentDashboard from './pages/student/StudentDashboard';
@@ -32,6 +33,7 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/login" element={user ? <Navigate to={`/${user.role}`} /> : <LoginPage />} />
+      <Route path="/signup" element={user ? <Navigate to={`/${user.role}`} /> : <SignUpPage />} />
       <Route path="/admin/*" element={<RoleRoute roles={['admin']}><AdminDashboard /></RoleRoute>} />
       <Route path="/teacher/*" element={<RoleRoute roles={['teacher']}><TeacherDashboard /></RoleRoute>} />
       <Route path="/student/*" element={<RoleRoute roles={['student']}><StudentDashboard /></RoleRoute>} />
